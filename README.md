@@ -46,7 +46,7 @@ WhatsApp, e-mail e Instagram ficam numa linha acima do cabeçalho em todas as p�
 
 - E-mail da Harmonize (está um provisório em `seed/settings.ts`).
 - Cidade e área de atendimento (deduzidas do DDD 75).
-- Foto da Cris, textos da página Sobre e um depoimento real.
+- Textos da página Sobre e um depoimento real.
 - Fotos e eventos reais (os atuais são ilustrativos, de bancos de imagem gratuitos; o rodapé avisa).
 
 ## Deploy

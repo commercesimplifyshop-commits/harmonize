@@ -1,7 +1,9 @@
-import type { PagesContent } from '@harmonize/shared'
+import type { Media, PagesContent } from '@harmonize/shared'
 import { unsplash } from '../../../lib/media'
 
-// Provisional copy: Cris rewrites any of it in the panel (v2). Portraits are null until she sends one.
+// Provisional copy: Cris rewrites any of it in the panel (v2).
+const PORTRAIT: Media = { url: '/img/cris-reboucas.jpg', alt: 'Cris Rebouças, sorrindo', focus: '50% 28%' }
+
 export const PAGES: PagesContent = {
   home: {
     intro: {
@@ -22,7 +24,7 @@ export const PAGES: PagesContent = {
       eyebrow: 'Quem faz a Harmonize',
       title: 'Cris Rebouças',
       text: 'À frente da Harmonize, Cris acompanha cada cliente de perto: visita o espaço, ouve a história da família e transforma tudo isso em um evento acolhedor, organizado e elegante.',
-      image: null,
+      image: PORTRAIT,
       buttonLabel: 'Conheça a nossa história',
     },
     events: {
@@ -56,7 +58,7 @@ export const PAGES: PagesContent = {
       title: 'Requinte, cuidado e muita organização',
       text: 'Conheça a Cris Rebouças e a forma como a Harmonize trabalha.',
     },
-    portrait: null,
+    portrait: PORTRAIT,
     bio: {
       title: 'Prazer, eu sou a Cris',
       paragraphs: [
