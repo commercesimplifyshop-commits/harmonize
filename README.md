@@ -50,4 +50,6 @@ WhatsApp, e-mail e Instagram ficam numa linha acima do cabeçalho em todas as p�
 
 ## Deploy
 
-Ver [docs/HOSPEDAGEM.md](docs/HOSPEDAGEM.md). Resumo: o build de `apps/web` vai para o `public_html` da HostGator (com o `.htaccess` incluído). A api da v2 precisa de um plano com Node.js.
+**Prévia online:** https://harmonize-six.vercel.app (Vercel, atualiza a cada push na `main`; configuração em `apps/web/vercel.json`).
+
+**Produção:** ver [docs/HOSPEDAGEM.md](docs/HOSPEDAGEM.md). Resumo: o build de `apps/web` vai para o `public_html` da HostGator (com o `.htaccess` incluído). A api da v2 precisa de um plano com Node.js.
