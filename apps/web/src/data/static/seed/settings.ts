@@ -1,6 +1,6 @@
 import type { SiteSettings } from '@harmonize/shared'
 
-// WhatsApp and Instagram come from Cris's business card.
+// WhatsApp and Instagram come from Cris's business card; e-mail confirmed by Kaio.
 export const SETTINGS: SiteSettings = {
   brandName: 'Harmonize',
   brandSuffix: 'Eventos',
@@ -8,8 +8,7 @@ export const SETTINGS: SiteSettings = {
   ownerName: 'Cris Rebouças',
   whatsapp: '5575991979918',
   phoneDisplay: '(75) 99197-9918',
-  // TODO: confirmar o e-mail real.
-  email: 'contato@harmonizeeventos.com.br',
+  email: 'annecryst@hotmail.com',
   instagram: 'harmonize_evento',
   // TODO: confirmar a cidade (DDD 75).
   city: 'Feira de Santana · BA',
