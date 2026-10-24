@@ -1,0 +1,19 @@
+{
+  "name": "harmonize",
+  "private": true,
+  "description": "Plataforma da Harmonize Eventos: site público (React) + API (NestJS) para o painel administrativo.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "dev:api": "npm run dev -w apps/api",
+    "typecheck": "npm run typecheck -w apps/web",
+    "lint": "npm run lint --workspaces --if-present",
+    "build": "npm run build -w apps/web && npm run build -w apps/api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
