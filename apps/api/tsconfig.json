@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ES2021",
-    "lib": ["ES2021"],
+    "target": "ES2022",
+    "lib": ["ES2022"],
     "moduleResolution": "node",
     "declaration": false,
     "removeComments": true,
@@ -14,9 +14,10 @@
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
+    "rootDir": ".",
     "outDir": "dist",
     "baseUrl": "."
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "include": ["src/**/*.ts", "api/**/*.ts"],
+  "exclude": ["node_modules", "dist", "scripts", "**/*.test.ts"]
 }
