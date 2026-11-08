@@ -5,6 +5,7 @@ import Icon from '../components/Icon'
 import { data } from '../data'
 import { usePage, useSettings } from '../data/hooks'
 import { useTitle } from '../lib/page'
+import { captchaToken } from '../lib/recaptcha'
 import { whatsappLink } from '../lib/whatsapp'
 import './pages.css'
 
@@ -27,6 +28,7 @@ export default function ContactPage() {
   const [form, setForm] = useState<ContactMessage>(EMPTY)
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [serverError, setServerError] = useState('')
 
   if (!page) return <Loading />
 
@@ -39,10 +41,11 @@ export default function ContactPage() {
     if (Object.keys(found).length > 0) return
     setStatus('sending')
     try {
-      await data.sendContact(form)
+      await data.sendContact({ ...form, captchaToken: await captchaToken('contact') })
       setStatus('sent')
       setForm(EMPTY)
-    } catch {
+    } catch (err) {
+      setServerError(err instanceof Error ? err.message : '')
       setStatus('error')
     }
   }
@@ -116,7 +119,7 @@ export default function ContactPage() {
                 </label>
                 {status === 'error' && (
                   <p className="field-error" role="alert">
-                    Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.
+                    {serverError || 'Não foi possível enviar agora.'} Se preferir, fale pelo WhatsApp.
                   </p>
                 )}
                 <button type="submit" className="btn btn--green" disabled={status === 'sending'}>

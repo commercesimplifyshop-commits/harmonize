@@ -5,4 +5,6 @@ interface ImportMetaEnv {
   readonly VITE_DATA_SOURCE?: 'static' | 'api'
   /** Base URL of the api. Defaults to /api on the same domain. */
   readonly VITE_API_URL?: string
+  /** reCAPTCHA v3 site key (login and contact form). Empty = no captcha. */
+  readonly VITE_RECAPTCHA_SITE_KEY?: string
 }

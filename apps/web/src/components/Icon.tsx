@@ -15,9 +15,54 @@ type Name =
   | 'users'
   | 'check'
   | 'send'
+  | 'camera'
+  | 'image'
+  | 'plus'
+  | 'trash'
+  | 'up'
+  | 'down'
+  | 'home'
+  | 'inbox'
+  | 'settings'
+  | 'layers'
+  | 'logout'
+  | 'eye'
 
 // 24x24 stroke icons. `whatsapp` and `instagram` are filled brand glyphs.
 const PATHS: Record<Name, ReactNode> = {
+  camera: (
+    <>
+      <path d="M4 8h3l2-3h6l2 3h3v11H4V8Z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </>
+  ),
+  image: (
+    <>
+      <rect x="3.5" y="4.5" width="17" height="15" rx="2" />
+      <circle cx="9" cy="10" r="1.8" />
+      <path d="m4 18 5.5-5 4 3.5 2.5-2 4 3.5" />
+    </>
+  ),
+  plus: <path d="M12 5v14M5 12h14" />,
+  trash: <path d="M5 7h14M10 7V4.5h4V7M7 7l1 13h8l1-13M10.5 11v5.5M13.5 11v5.5" />,
+  up: <path d="m6 15 6-6 6 6" />,
+  down: <path d="m6 9 6 6 6-6" />,
+  home: <path d="M4 11 12 4l8 7v9h-5v-6h-6v6H4v-9Z" />,
+  inbox: <path d="M4 13 6.5 5h11L20 13v6H4v-6Zm0 0h5l1 2.5h4l1-2.5h5" />,
+  settings: (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7" />
+    </>
+  ),
+  layers: <path d="m12 4 8.5 4.5L12 13 3.5 8.5 12 4ZM3.5 12.5 12 17l8.5-4.5M3.5 16.5 12 21l8.5-4.5" />,
+  logout: <path d="M14 4h5v16h-5M10 8l-4 4 4 4M6 12h10" />,
+  eye: (
+    <>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
   whatsapp: (
     <path
       fill="currentColor"

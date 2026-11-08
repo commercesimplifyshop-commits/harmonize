@@ -1,5 +1,8 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Loading } from './components/Blocks'
 import SiteLayout from './components/layout/SiteLayout'
+import SettingsProvider from './data/SettingsProvider'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import EventDetailPage from './pages/EventDetailPage'
@@ -8,12 +11,27 @@ import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import QuotePage from './pages/QuotePage'
 
-// v2 adds /admin/* here as a lazy-loaded route tree with its own layout (see docs/ARQUITETURA.md),
-// so visitors of the public site never download the panel's code.
+// The panel is its own chunk: visitors of the public site never download it.
+const AdminApp = lazy(() => import('./admin/AdminApp'))
+
 export default function App() {
   return (
     <Routes>
-      <Route element={<SiteLayout />}>
+      <Route
+        path="admin/*"
+        element={
+          <Suspense fallback={<Loading />}>
+            <AdminApp />
+          </Suspense>
+        }
+      />
+      <Route
+        element={
+          <SettingsProvider>
+            <SiteLayout />
+          </SettingsProvider>
+        }
+      >
         <Route index element={<HomePage />} />
         <Route path="sobre" element={<AboutPage />} />
         <Route path="eventos" element={<EventsPage />} />

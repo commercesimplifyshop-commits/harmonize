@@ -3,6 +3,7 @@ import { useState, type FormEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Loading, PageHero } from '../components/Blocks'
 import Icon from '../components/Icon'
+import { data } from '../data'
 import { usePage, useSettings } from '../data/hooks'
 import { CATEGORY_LABEL } from '../lib/format'
 import { useTitle } from '../lib/page'
@@ -44,7 +45,8 @@ export default function QuotePage() {
       return
     }
     setError('')
-    // v2: also POST the request to the api so it shows up in the panel as a lead.
+    // A copy goes to the panel; WhatsApp opens right away (not awaited, or browsers block the new tab).
+    data.sendQuote(form).catch(() => undefined)
     window.open(whatsappLink(s.whatsapp, quoteMessage(page.greeting, form)), '_blank', 'noopener')
   }
 

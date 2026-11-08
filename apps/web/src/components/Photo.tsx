@@ -34,7 +34,8 @@ export default function Photo({ media, ratio, width = 900, label, className = ''
   return (
     <div className={`photo ${className}`} style={box}>
       <img
-        src={sized(media.url, width)}
+        // Cards and thumbnails use the uploaded ~640px copy; big slots use the full image.
+        src={sized(width <= 700 && media.thumbUrl ? media.thumbUrl : media.url, width)}
         alt={media.alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
